@@ -1,0 +1,53 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 25vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #32353eed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2.5vmin);
+  font-weight: 700;
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.Dropdown {
+  color: white;
+  font-size: 5rem;
+  cursor: pointer;
+}
+
+.Dropdown:hover {
+  transform: scale(1.03);
+  transition: transform 100ms;
+  color: rgb(121, 177, 203);
+  transition: color 100ms;
+}
+
+.Blog {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2vmin);
+  font-weight: 600;
+  color: black;
+}

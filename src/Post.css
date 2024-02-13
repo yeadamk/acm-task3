@@ -1,0 +1,22 @@
+.post {
+  min-width: min(60ch, 80vw);
+  background-color: rgb(139, 190, 212);
+  margin-bottom: 1rem;
+}
+
+.post-title {
+  text-align: left;
+  font-size: 3rem;
+  margin-left: 2rem;
+}
+
+.post-content {
+  text-align: left;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+}
+
+.like-button {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}

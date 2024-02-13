@@ -1,8 +1,27 @@
-import logo from './logo.png';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.png";
+import "./App.css";
+import Post from "./Post";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { IoMdAddCircle } from "react-icons/io";
 
 function App() {
+
+  const [posts, setPosts] = useState([]);
+
+  const addPost = (title, content) => {
+    const newPost = { id: posts.length + 1, title, content, likes: 0 };
+    setPosts([...posts, newPost]);
+  }
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const title = event.target.title.value;
+    const content = event.target.content.value;
+    addPost(title, content);
+    event.target.title.value = "";
+    event.target.content.value = "";
+  };
 
   const handleScroll = () => {
     const targetElement = document.querySelector(".Blog")
@@ -12,25 +31,34 @@ function App() {
   }
 
   return (
-    <main className="App">
-      <header className="App-header">
+    <main className="app">
+      <header className="app-header">
         <a
-          className="App-link"
+          className="app-link"
           href="https://www.yeadamkim.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo} className="app-logo" alt="logo" />
         </a>
         <p>
           Welcome to my blog!
         </p>
-        <IoIosArrowDropdownCircle className="Dropdown" onClick={handleScroll}/>
+        <IoIosArrowDropdownCircle className="dropdown" onClick={handleScroll}/>
       </header>
-      <section className="Blog" id="blog">
-        <div>
-          No posts available
+      <section className="blog" id="blog">
+        <div className="post-container">
+          {posts.map(post => (
+              <Post key={post.id} post={post} />
+          ))}
+
+          <form className="form-container" onSubmit={handleFormSubmit}>
+            <input type="text" name="title" placeholder="Post Title" required />
+            <textarea name="content" placeholder="Post Content" required></textarea>
+            <button type="submit">Add Post</button>
+          </form>
         </div>
+        <IoMdAddCircle className="addPost" onClick={addPost}/>
       </section>
     </main>
   );
